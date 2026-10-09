@@ -1,128 +1,464 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprende con el ProfeLUIS - Plataforma Educativa</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus Head Spa</title>
+  
+  <!-- Tipografía elegante de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --morado-fondo: #4E2A74;    /* Fondo morado de tu referencia */
+      --morado-oscuro: #311856;   
+      --morado-tarjeta: rgba(255, 255, 255, 0.12); /* Fondo de la carta */
+      --dorado: #DDB14A;          /* Dorado del loto */
+      --texto-blanco: #EBE5F2;
+      --texto-atenuado: #C2B3D6;
+
+      --fuente-titulos: "Cormorant Garamond", Georgia, serif;
+      --fuente-texto: "Montserrat", Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--fuente-texto);
+      color: var(--texto-blanco);
+      background-color: var(--morado-fondo);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* Encabezado */
+    .encabezado {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px 24px;
+      padding: 16px 32px;
+      background: var(--morado-oscuro);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-nav {
+      color: var(--dorado);
+      flex-shrink: 0;
+    }
+
+    .marca-nombre {
+      font-family: var(--fuente-titulos);
+      font-size: 1.6rem;
+      color: var(--texto-blanco);
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .menu a:hover {
+      color: var(--dorado);
+    }
+
+    /* Hero Principal */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      min-height: 60vh;
+      padding: 40px 20px;
+    }
+
+    .contenedor-logo-hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-hero {
+      color: var(--dorado);
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: var(--fuente-titulos);
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+
+    .hero-sub {
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      color: var(--texto-atenuado);
+    }
+
+    .eslogan {
+      font-family: var(--fuente-titulos);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--dorado);
+      margin-top: 6px;
+    }
+
+    .boton {
+      margin-top: 18px;
+      padding: 10px 28px;
+      background: transparent;
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .boton:hover {
+      background: var(--dorado);
+      color: var(--morado-oscuro);
+    }
+
+    /* Secciones */
+    .seccion {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .seccion h2 {
+      font-family: var(--fuente-titulos);
+      font-size: 2.2rem;
+      color: var(--dorado);
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--texto-atenuado);
+    }
+
+    /* Carta / Menú de Servicios (Estilo exacto de la referencia) */
+    .seccion-menu {
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px 80px;
+    }
+
+    .tarjeta-menu {
+      background: var(--morado-tarjeta);
+      border: 1px solid rgba(221, 177, 74, 0.3);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 720px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .logo-carta {
+      color: var(--dorado);
+      margin-bottom: 8px;
+      flex-shrink: 0;
+    }
+
+    .titulo-menu {
+      font-family: var(--fuente-titulos);
+      font-size: 2.4rem;
+      letter-spacing: 3px;
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+
+    .subtitulo-menu {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--texto-atenuado);
+      margin-bottom: 36px;
+    }
+
+    /* Estructura en Grid para alineación perfecta de columnas */
+    .item-menu {
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .item-linea {
+      display: grid;
+      grid-template-columns: 1fr auto 100px;
+      align-items: baseline;
+      gap: 16px;
+      font-size: 0.88rem;
+      letter-spacing: 0.5px;
+    }
+
+    .item-nombre {
+      font-weight: 600;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .item-duracion {
+      color: var(--texto-atenuado);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .item-precio {
+      font-weight: 600;
+      color: #FFFFFF;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .item-precio s {
+      color: var(--texto-atenuado);
+      font-size: 0.8rem;
+      margin-left: 4px;
+      font-weight: 400;
+    }
+
+    .precio-rebajado {
+      color: var(--dorado);
+      font-weight: 700;
+    }
+
+    .item-descripcion {
+      font-size: 0.8rem;
+      color: var(--texto-atenuado);
+      margin-top: 2px;
+      grid-column: 1 / -1;
+    }
+
+    .divisor-estrellas {
+      margin: 32px 0;
+      position: relative;
+      text-align: center;
+    }
+
+    .divisor-estrellas::before,
+    .divisor-estrellas::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 20%;
+      height: 1px;
+      background: rgba(221, 177, 74, 0.3);
+    }
+
+    .divisor-estrellas::before { left: 0; }
+    .divisor-estrellas::after { right: 0; }
+
+    .divisor-estrellas span {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: var(--dorado);
+      padding: 0 10px;
+    }
+
+    /* Contacto y Pie */
+    .datos {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .datos a {
+      color: var(--dorado);
+    }
+
+    .pie {
+      text-align: center;
+      padding: 24px;
+      background: var(--morado-oscuro);
+      font-size: 0.8rem;
+      color: var(--texto-atenuado);
+    }
+
+    @media (max-width: 600px) {
+      .tarjeta-menu {
+        padding: 32px 20px;
+      }
+      .item-linea {
+        grid-template-columns: 1fr auto;
+      }
+      .item-precio {
+        grid-column: 2;
+        text-align: right;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Encabezado / Navegación -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">Profe<span>LUIS</span></a>
-            <nav class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#cursos">Cursos</a>
-                <a href="#nosotros">Sobre Mí</a>
-                <a href="#contacto" class="btn-nav">Contacto</a>
-            </nav>
+  <!-- Encabezado / Navegación -->
+  <header class="encabezado">
+    <a href="#" class="marca">
+      <svg class="logo-nav" width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 15 C50 15, 65 35, 65 55 C65 70, 58 80, 50 85 C42 80, 35 70, 35 55 C35 35, 50 15, 50 15 Z" fill="currentColor"/>
+        <path d="M50 30 C60 35, 80 45, 85 60 C90 75, 75 85, 62 80 C55 77, 50 85, 50 85 C50 85, 45 77, 38 80 C25 85, 10 75, 15 60 C20 45, 40 35, 50 30 Z" fill="currentColor"/>
+      </svg>
+      <span class="marca-nombre">Lotus Head Spa</span>
+    </a>
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero (Inicio) -->
+  <section id="inicio" class="hero">
+    <div class="contenedor-logo-hero">
+      <svg class="logo-hero" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 C50 10, 68 35, 68 60 C68 78, 59 88, 50 92 C41 88, 32 78, 32 60 C32 35, 50 10, 50 10 Z" fill="currentColor"/>
+        <path d="M50 28 C62 33, 85 45, 90 62 C95 80, 78 90, 64 84 C56 81, 50 92, 50 92 C50 92, 44 81, 36 84 C22 90, 5 80, 10 62 C15 45, 38 33, 50 28 Z" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <h1>Lotus Head Spa</h1>
+    <p class="hero-sub">JAPANESE HEAD SPA | KOREAN HEAD SPA</p>
+    <p class="eslogan">"El equilibrio perfecto entre relajación y cuidado capilar profundo"</p>
+    <a href="#servicios" class="boton">Ver Carta de Servicios</a>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="seccion">
+    <h2>Sobre Nosotros</h2>
+    <p class="intro">Especialistas en técnicas de terapia capilar oriental. Fusión de relajación, diagnóstico profesional y tratamientos purificantes.</p>
+  </section>
+
+  <!-- Carta de Servicios -->
+  <section id="servicios" class="seccion-menu">
+    <div class="tarjeta-menu">
+      
+      <svg class="logo-carta" width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10 C50 10, 68 35, 68 60 C68 78, 59 88, 50 92 C41 88, 32 78, 32 60 C32 35, 50 10, 50 10 Z" fill="currentColor"/>
+        <path d="M50 28 C62 33, 85 45, 90 62 C95 80, 78 90, 64 84 C56 81, 50 92, 50 92 C50 92, 44 81, 36 84 C22 90, 5 80, 10 62 C15 45, 38 33, 50 28 Z" fill="currentColor"/>
+      </svg>
+
+      <h2 class="titulo-menu">RITUALES</h2>
+      <p class="subtitulo-menu">VISION EN 10 DIMESIONES DE TU CABELLO</p>
+
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">ANALISIS DE CUERO CABELLUDO Y CABELLO CON IA</span>
+          <span class="item-duracion">20 MINUTOS</span>
+          <span class="item-precio">$300,000</span>
         </div>
-    </header>
+      </div>
 
-    <!-- Sección Principal / Hero -->
-    <section id="inicio" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1>Potencia tus habilidades digitales con <span class="highlight">Aprende con el ProfeLUIS</span></h1>
-                <p>Cursos de programación y tecnología diseñados para llevarte desde cero hasta un nivel profesional con metodología 100% práctica.</p>
-                <div class="hero-buttons">
-                    <a href="#cursos" class="btn btn-primary">Ver Cursos</a>
-                    <a href="#contacto" class="btn btn-secondary">Inscribirme</a>
-                </div>
-            </div>
-            <div class="hero-card">
-                <h3>Aprendizaje Guiado</h3>
-                <p>Clases en vivo, proyectos reales y mentoría personalizada para asegurar tu éxito académico y profesional.</p>
-            </div>
+      <div class="divisor-estrellas">
+        <span>5 ★ TRATAMIENTOS CAPILARES Y DE RELAJACION</span>
+      </div>
+
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">HIMEYASUMI</span>
+          <span class="item-duracion">135 MINUTOS / 18 PASO</span>
+          <span class="item-precio">
+            <span class="precio-rebajado">AHORA $130,000</span>
+            <s>$170,000</s>
+          </span>
         </div>
-    </section>
+      </div>
 
-    <!-- Sección de Cursos / Servicios -->
-    <section id="cursos" class="courses">
-        <div class="container">
-            <h2 class="section-title">Nuestra Oferta Educativa</h2>
-            <div class="courses-grid">
-                <article class="course-card">
-                    <div class="card-tag">Front-End</div>
-                    <h3>Desarrollo Web con HTML5 y CSS3</h3>
-                    <p>Aprende a estructurar y maquetar sitios web modernos, adaptables y con código limpio utilizando Flexbox.</p>
-                    <a href="#contacto" class="btn-card">Más información</a>
-                </article>
-
-                <article class="course-card">
-                    <div class="card-tag">Lógica</div>
-                    <h3>Fundamentos de Programación</h3>
-                    <p>Domina los algoritmos, la lógica de programación y la resolución de problemas desde las bases.</p>
-                    <a href="#contacto" class="btn-card">Más información</a>
-                </article>
-
-                <article class="course-card">
-                    <div class="card-tag">Avanzado</div>
-                    <h3>JavaScript para Principiantes</h3>
-                    <p>Dale interactividad y dinamismo a tus páginas web aprendiendo el lenguaje más demandado del mercado.</p>
-                    <a href="#contacto" class="btn-card">Más información</a>
-                </article>
-            </div>
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">HIME ESSENCE</span>
+          <span class="item-duracion">75 MINUTOS / 11 PASOS</span>
+          <span class="item-precio">$ 90,000</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Sección Sobre Mí / Acerca de -->
-    <section id="nosotros" class="about">
-        <div class="container about-container">
-            <div class="about-info">
-                <h2>¿Quién es el ProfeLUIS?</h2>
-                <p>Soy docente y desarrollador apasionado por la enseñanza de la tecnología. Mi objetivo es simplificar temas complejos para que cualquier estudiante pueda aprender a programar y crear sus propios proyectos web con éxito.</p>
-                <ul class="about-list">
-                    <li> Metodología paso a paso</li>
-                    <li> Proyectos evaluativos prácticos</li>
-                    <li> Soporte y acompañamiento constante</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      <div class="divisor-estrellas">
+        <span>5 ★ TRATAMIENTOS CAPILARES ENFOCADOS</span>
+      </div>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container contact-container">
-            <h2>¡Inicia tu Formación Hoy!</h2>
-            <p>Envía tus datos y me pondré en contacto contigo para darte todos los detalles de los cursos.</p>
-            
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="curso">Curso de Interés</label>
-                    <select id="curso" name="curso" required>
-                        <option value="" disabled selected>Selecciona una opción</option>
-                        <option value="html-css">HTML5 y CSS3</option>
-                        <option value="logica">Fundamentos de Programación</option>
-                        <option value="javascript">JavaScript</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje o Consulta</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
-                </div>
-                <button type="submit" class="btn btn-submit">Enviar Solicitud</button>
-            </form>
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">SCALP DETOX </span>
+          <span class="item-duracion">75 MINUTOS</span>
+          <span class="item-precio">$ 90,000</span>
+          <p class="item-descripcion">GRASO, SECO, PICAZON, CUERO CABELLUDO ESCAMOSO</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Pie de Página -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 Aprende con el ProfeLUIS. Todos los derechos reservados.</p>
-            <p class="academic-note">Evaluación del Segundo Momento - Desarrollo Web</p>
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">SCALP BOOST</span>
+          <span class="item-duracion">85 MINUTOS</span>
+          <span class="item-precio">$ 100,000</span>
+          <p class="item-descripcion">CAIDA DEL CABELLO, CABELLO QUE SE VUELVE MAS FINO</p>
         </div>
-    </footer>
+      </div>
+
+      <div class="item-menu">
+        <div class="item-linea">
+          <span class="item-nombre">Smarly</span>
+          <span class="item-duracion">85 MINUTOS</span>
+          <span class="item-precio">$ 100,000</span>
+          <p class="item-descripcion">SENSIBLE, MOLESTIAS POR ECCEMA, SEBORREICO</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="seccion">
+    <h2>Reservas y Contacto</h2>
+    <ul class="datos">
+      <li>📍 Dirección: Av. Principal #123, Centro de Bienestar</li>
+      <li>📞 Teléfono: <a href="tel:+123456789">+1 234 567 89</a></li>
+      <li>✉️ Correo: <a href="mailto:info@lotusheadspa.com">info@lotusheadspa.com</a></li>
+    </ul>
+  </section>
+
+  <footer class="pie">
+    <p>&copy; 2026 Lotus Head Spa. Todos los derechos reservados.</p>
+  </footer>
 
 </body>
 </html>
