@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende con el ProfeLUIS - Plataforma Educativa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Profe<span>LUIS</span></a>
+            <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#cursos">Cursos</a>
+                <a href="#nosotros">Sobre Mí</a>
+                <a href="#contacto" class="btn-nav">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Principal / Hero -->
+    <section id="inicio" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Potencia tus habilidades digitales con <span class="highlight">Aprende con el ProfeLUIS</span></h1>
+                <p>Cursos de programación y tecnología diseñados para llevarte desde cero hasta un nivel profesional con metodología 100% práctica.</p>
+                <div class="hero-buttons">
+                    <a href="#cursos" class="btn btn-primary">Ver Cursos</a>
+                    <a href="#contacto" class="btn btn-secondary">Inscribirme</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Aprendizaje Guiado</h3>
+                <p>Clases en vivo, proyectos reales y mentoría personalizada para asegurar tu éxito académico y profesional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Cursos / Servicios -->
+    <section id="cursos" class="courses">
+        <div class="container">
+            <h2 class="section-title">Nuestra Oferta Educativa</h2>
+            <div class="courses-grid">
+                <article class="course-card">
+                    <div class="card-tag">Front-End</div>
+                    <h3>Desarrollo Web con HTML5 y CSS3</h3>
+                    <p>Aprende a estructurar y maquetar sitios web modernos, adaptables y con código limpio utilizando Flexbox.</p>
+                    <a href="#contacto" class="btn-card">Más información</a>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-tag">Lógica</div>
+                    <h3>Fundamentos de Programación</h3>
+                    <p>Domina los algoritmos, la lógica de programación y la resolución de problemas desde las bases.</p>
+                    <a href="#contacto" class="btn-card">Más información</a>
+                </article>
+
+                <article class="course-card">
+                    <div class="card-tag">Avanzado</div>
+                    <h3>JavaScript para Principiantes</h3>
+                    <p>Dale interactividad y dinamismo a tus páginas web aprendiendo el lenguaje más demandado del mercado.</p>
+                    <a href="#contacto" class="btn-card">Más información</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí / Acerca de -->
+    <section id="nosotros" class="about">
+        <div class="container about-container">
+            <div class="about-info">
+                <h2>¿Quién es el ProfeLUIS?</h2>
+                <p>Soy docente y desarrollador apasionado por la enseñanza de la tecnología. Mi objetivo es simplificar temas complejos para que cualquier estudiante pueda aprender a programar y crear sus propios proyectos web con éxito.</p>
+                <ul class="about-list">
+                    <li> Metodología paso a paso</li>
+                    <li> Proyectos evaluativos prácticos</li>
+                    <li> Soporte y acompañamiento constante</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container contact-container">
+            <h2>¡Inicia tu Formación Hoy!</h2>
+            <p>Envía tus datos y me pondré en contacto contigo para darte todos los detalles de los cursos.</p>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="curso">Curso de Interés</label>
+                    <select id="curso" name="curso" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="html-css">HTML5 y CSS3</option>
+                        <option value="logica">Fundamentos de Programación</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje o Consulta</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Aprende con el ProfeLUIS. Todos los derechos reservados.</p>
+            <p class="academic-note">Evaluación del Segundo Momento - Desarrollo Web</p>
+        </div>
+    </footer>
+
+</body>
+</html>

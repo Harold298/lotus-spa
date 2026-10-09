@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+/* =====================================================
+   Lotus Head Spa - Hoja de estilos
+   Solo CSS3 + Flexbox (sin Grid, sin frameworks)
+   ===================================================== */
+
+/* ---------- Variables de color y tipografía ---------- */
+:root {
+  --primario: #54347F;     /* morado corporativo */
+  --secundario: #C9A24D;   /* dorado */
+  --terciario: #F3ECFA;    /* lila muy claro */
+  --texto: #2B2236;
+  --blanco: #FFFFFF;
+
+  --fuente-titulos: "Cormorant Garamond", Georgia, serif;
+  --fuente-texto: "Open Sans", Arial, sans-serif;
+}
+
+/* ---------- Reinicio básico ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* desplazamiento suave a las secciones */
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--texto);
+  line-height: 1.6;
+  background: var(--blanco);
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.15;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  width: 44px;
+  height: 36px;
+  color: var(--secundario);
+}
+
+.logo-grande {
+  width: 150px;
+  height: 120px;
+  color: var(--secundario);
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;               /* en celular el menú baja de línea */
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 14px 24px;
+  background: var(--primario);
+  color: var(--blanco);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.marca-nombre {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: var(--secundario);
+}
+
+/* ---------- Hero (inicio) ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;        /* elementos uno debajo de otro */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  min-height: 80vh;
+  padding: 48px 24px;
+  background: var(--primario);
+  color: var(--terciario);
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  color: var(--blanco);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C7A8E6;
+}
+
+.eslogan {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--secundario);
+}
+
+.boton {
+  margin-top: 12px;
+  padding: 12px 30px;
+  background: var(--secundario);
+  color: var(--primario);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+}
+
+.boton:hover {
+  background: var(--blanco);
+}
+
+/* ---------- Secciones generales ---------- */
+.seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 64px 24px;
+}
+
+.seccion h2 {
+  font-size: 2.4rem;
+  color: var(--primario);
+  text-align: center;
+}
+
+.seccion h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: var(--secundario);
+}
+
+.seccion-clara {
+  background: var(--terciario);
+}
+
+.intro {
+  max-width: 600px;
+  text-align: center;
+}
+
+/* ---------- Filas de bloques (Flexbox) ---------- */
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.bloque {
+  flex: 1 1 280px;               /* crece, se encoge, base de 280px */
+  padding: 24px;
+  background: var(--blanco);
+  border: 1px solid #E3D5F2;
+  border-radius: 12px;
+}
+
+.seccion-clara .bloque {
+  border: none;
+}
+
+.bloque h3 {
+  font-size: 1.5rem;
+  color: var(--primario);
+  margin-bottom: 8px;
+}
+
+/* ---------- Tarjetas de servicios ---------- */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 26px 22px;
+  background: var(--blanco);
+  border-top: 4px solid var(--secundario);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(84, 52, 127, 0.12);
+}
+
+.tarjeta h3 {
+  font-size: 1.7rem;
+  color: var(--primario);
+}
+
+.detalle {
+  margin: 4px 0 10px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8A6E2C;
+}
+
+.precio {
+  margin-top: auto;              /* empuja el precio al final de la tarjeta */
+  padding-top: 16px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primario);
+}
+
+.precio s {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #8B8296;
+}
+
+.destacada {
+  border-top-color: var(--primario);
+}
+
+.etiqueta {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 3px 12px;
+  background: var(--secundario);
+  color: var(--primario);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+/* ---------- Contacto ---------- */
+.seccion-oscura {
+  background: var(--primario);
+  color: var(--terciario);
+}
+
+.seccion-oscura h2 {
+  color: var(--blanco);
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.datos a {
+  color: var(--secundario);
+}
+
+/* ---------- Pie de página ---------- */
+.pie {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  background: #3E2661;
+  color: #CDB8E6;
+}
+
+/* ---------- Ajustes para pantallas pequeñas ---------- */
+@media (max-width: 600px) {
+  .encabezado {
+    justify-content: center;
+  }
+
+  .seccion {
+    padding: 48px 16px;
+  }
+
+  .seccion h2 {
+    font-size: 2rem;
+  }
+}
